@@ -20,11 +20,17 @@ public class devisorList {
     public static int[] solution(int[] arr, int divisor) {
         List<Integer> test = new ArrayList<>();
 
-        for (int i : arr) {
-            if (i % divisor == 0) { // 나누어떨어질 경우에만 리스트에 저장
-                test.add(i);
-            }
-        }
+        // enhanced-for ver.
+//        for (int i : arr) {
+//            if (i % divisor == 0) { // 나누어떨어질 경우에만 리스트에 저장
+//                test.add(i);
+//            }
+//        }
+
+        // stream ver.
+        Arrays.stream(arr).forEach(e->{
+            if(e % divisor == 0) test.add(e);
+        });
 
         if (test.size() == 0) // 아무런 값이 없을 경우 -1 값을 저장
             test.add(-1);
