@@ -10,18 +10,25 @@ public class devisorList {
     }
 
 
+    /**
+     * array의 각 element 중 divisor로 나누어 떨어지는 값을 오름차순으로 정렬한 배열을 반환하는 함수
+     * 
+     * @param arr 숫자 배열
+     * @param divisor 나눌 숫자
+     * @return int[]
+     */
     public static int[] solution(int[] arr, int divisor) {
         List<Integer> test = new ArrayList<>();
 
         for (int i : arr) {
-            if (i % divisor == 0) {
+            if (i % divisor == 0) { // 나누어떨어질 경우에만 리스트에 저장
                 test.add(i);
             }
         }
 
-        if (test.size() == 0)
+        if (test.size() == 0) // 아무런 값이 없을 경우 -1 값을 저장
             test.add(-1);
 
-        return test.stream().sorted().mapToInt(Integer::intValue).toArray();
+        return test.stream().sorted().mapToInt(Integer::intValue).toArray(); // 리스트를 배열로 변환하여 반환
     }
 }
